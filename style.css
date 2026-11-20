@@ -1,0 +1,371 @@
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont,
+    'Noto Sans KR', sans-serif;
+  color: #1c2430;
+  background: #f5f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 14px;
+  background: #263a69;
+  color: white;
+}
+
+button.secondary {
+  background: #e9edf6;
+  color: #24365b;
+}
+
+button.danger {
+  background: #fff0f0;
+  color: #b42d35;
+}
+
+input, select {
+  width: 100%;
+  border: 1px solid #d7deea;
+  background: white;
+  border-radius: 11px;
+  padding: 12px;
+}
+
+main {
+  max-width: 720px;
+  margin: auto;
+  padding: 20px 16px 90px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 0 0 14px;
+}
+
+small, .muted {
+  color: #6b7588;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #e5e9f1;
+  border-radius: 18px;
+  padding: 18px;
+  margin: 14px 0;
+  box-shadow: 0 3px 16px #1c2d5010;
+}
+
+.row {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.row > * {
+  min-width: 0;
+}
+
+.row.wrap {
+  flex-wrap: wrap;
+}
+
+.grow {
+  flex: 1;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  overflow: auto;
+}
+
+.tabs button {
+  white-space: nowrap;
+}
+
+.tabs button:not(.active) {
+  background: #e9edf6;
+  color: #43516a;
+}
+
+.fields {
+  display: grid;
+  gap: 10px;
+}
+
+.word {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #eef0f5;
+}
+
+.word:last-child {
+  border-bottom: 0;
+}
+
+.word strong {
+  font-size: 18px;
+}
+
+.word p {
+  margin: 4px 0;
+}
+
+.card {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+  border: 2px solid #e0e6f2;
+  border-radius: 20px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.card .big {
+  font-size: 32px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.card p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.pill {
+  display: inline-block;
+  background: #eaf0ff;
+  color: #31538d;
+  border-radius: 30px;
+  padding: 5px 9px;
+  font-size: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.note {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat {
+  background: #f3f6fc;
+  padding: 15px;
+  border-radius: 14px;
+}
+
+.stat b {
+  font-size: 25px;
+  display: block;
+  margin-top: 4px;
+}
+
+#toast {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #263a42;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: none;
+  max-width: 90%;
+  z-index: 10;
+}
+
+@media (max-width: 420px) {
+  .row.compact {
+    flex-wrap: wrap;
+  }
+
+  main {
+    padding: 15px 12px 80px;
+  }
+}
+
+
+/* 발음·읽기 옵션 정렬 */
+#rubyToggle, #slowToggle {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  flex: 0 0 18px;
+  accent-color: #263a69;
+}
+
+#rubyToggle + span,
+#slowToggle + span {
+  white-space: nowrap;
+}
+
+label:has(> #rubyToggle),
+label:has(> #slowToggle) {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 7px;
+  width: auto;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 복습 방식 선택 버튼 */
+.study-modes {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.study-modes button {
+  flex: 1;
+  padding: 10px 8px;
+  font-size: 14px;
+}
+
+.study-modes button.active {
+  background: #263a69;
+  color: #fff;
+}
+
+/* 플래시카드: 중복 선언을 정리한 단일 레이아웃 */
+.study-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  min-height: 250px;
+  height: auto;
+  max-height: none;
+  padding: 22px 18px;
+  overflow: visible;
+}
+
+.study-card.is-front {
+  justify-content: space-between;
+}
+
+.study-front-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 170px;
+  padding: 12px 4px;
+}
+
+.study-headword {
+  font-size: clamp(30px, 7vw, 46px);
+  font-weight: 750;
+  line-height: 1.5;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.study-card ruby {
+  ruby-position: over;
+}
+
+.study-card rt {
+  font-size: .42em;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.study-flip-help {
+  display: block;
+  flex: none;
+  padding-top: 8px;
+  color: #788295;
+  font-size: 13px;
+  text-align: center;
+}
+
+.study-card.is-back {
+  justify-content: flex-start;
+  min-height: 250px;
+  height: auto;
+  padding: 38px 18px 16px;
+}
+
+.study-back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 44px;
+  flex: none;
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  padding: 0;
+  overflow: visible;
+}
+
+.study-meaning {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(22px, 5vw, 30px);
+  font-weight: 750;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.study-examples {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.study-extra-note {
+  width: 100%;
+  margin: 12px 0 0;
+  font-size: 14px;
+  text-align: center;
+}
