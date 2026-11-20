@@ -1,6 +1,4 @@
 
-import './style.css';
-
 const KEY = 'personal-vocab-v1';
 
 const languages = {
